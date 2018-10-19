@@ -1,5 +1,11 @@
 
-	@	Put the required header information here
+	@Author: Gabriel Hernandez
+	@Assignment: PA4-1.s (Summation)
+	@Date Completed: Oct.19.18
+	@ This program writes a summation between to values the user enters
+	@ R1 operates as the summation
+	@ R2 operates as the starting value
+	@ R3 operates as the ending value
 
 	.extern printf
 	.extern scanf
