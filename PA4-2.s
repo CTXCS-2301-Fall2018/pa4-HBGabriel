@@ -16,7 +16,12 @@ main:	PUSH	{LR}
 	@-------------
 	@ Your code goes here.  Put n! in R2
 	@-------------
-
+	MOV R2, #1	@Initialze R2 as 1
+_loop:
+	MUL R2,R2,R0	@Multiply R2 by R0(n)
+	SUB R0,R0,#1	@Subtract 1 from n store in R0(n-1)
+	CMP R0,#1	@Check if R0 is 1
+	BGT _loop	@Branch to _loop if R0 if greater than 1
 
 
 
