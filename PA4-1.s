@@ -16,7 +16,13 @@ main:
 	@ Your code must put the final answer
 	@ in R1.
 	@-------------
-
+	MOV R1, R2	@set R1 equal to R2
+_loop:	
+	CMP R2,R3	@compare R2 to R3
+	
+	ADDLT R2,R2,#1	@Add 1 to R2 if R2 is less than R3
+	ADDLT R1, R1,R2	@Add R1 and R2 then store into R1 if R2 is less than R3
+	BLT _loop 	@Branch to _loop if R2 is less than R3
 	
 	
 	@-------------
