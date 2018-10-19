@@ -1,6 +1,11 @@
-	@ Factorial
-	@ Put the required header information here
-
+	@Author: Gabriel Hernandez
+	@Assignment: PA4-2.s (Factorial)
+	@Date Completed: Oct.19.18
+	@ This program writes a factorial based on the value the user enters
+	@ R0 operates as the user entered value then decrements
+	@ R2 operates as the factorial
+	@ _loop decrements R0 and multiplies R0 by R2 storing the value into R2
+	
 	.extern printf
 	.extern scanf
 	.global main
@@ -17,9 +22,12 @@ main:	PUSH	{LR}
 	@ Your code goes here.  Put n! in R2
 	@-------------
 	MOV R2, #1	@Initialze R2 as 1
+	CMP R0, #0	@Compares R0 to 0
+	MULEQ R2,R2,R2	@if R0 is 0 sets R2 to 1
+	POPLT {PC}	@If R0 is below 0 exits program
 _loop:
-	MUL R2,R2,R0	@Multiply R2 by R0(n)
-	SUB R0,R0,#1	@Subtract 1 from n store in R0(n-1)
+	MULGT R2,R2,R0	@Multiply R2 by R0(n)
+	SUBGT R0,R0,#1	@Subtract 1 from n store in R0(n-1)
 	CMP R0,#1	@Check if R0 is 1
 	BGT _loop	@Branch to _loop if R0 if greater than 1
 
@@ -38,4 +46,3 @@ n:	.word 0
 prompt:	.asciz "Enter n: "
 in:	.asciz "%d"
 out:	.asciz "factorial is: %d\n"
-
